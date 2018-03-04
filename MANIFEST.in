@@ -1,0 +1,5 @@
+include dash_callback_chain/bundle.js
+include dash_callback_chain/bundle.js.map
+include dash_callback_chain/metadata.json
+include README.md
+include LICENSE.md
