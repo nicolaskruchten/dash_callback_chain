@@ -1,4 +1,4 @@
-# dash-callback-chain
+# dash-callback-chain (ALPHA QUALITY)
 
 Dash component to visualize callback chains
 
