@@ -4,6 +4,8 @@ Dash component to visualize callback chains
 
 ## Usage
 
+Install with `pip install dash_callback_chain`
+
 ```python
 import dash_callback_chain as chainvis
 
