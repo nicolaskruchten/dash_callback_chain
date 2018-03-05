@@ -4,7 +4,7 @@ Dash component to visualize callback chains
 
 ## Example
 
-The example app in this repo has two linked radio button groups and the chain visualization looks like this:
+The [simple example app in this repo](usage.py) has two linked radio button groups and the chain visualization looks like this:
 
 ![example](example.png)
 
