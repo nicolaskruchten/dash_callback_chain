@@ -34,14 +34,14 @@ for _component in _components:
 
 
 from collections import defaultdict
-def dot_chain(app):
+def dot_chain(app, excluded_callbacks = []):
     output_list = []
     clusters = defaultdict(set)
 
-    output_list.append('digraph G {')
     for callback_id, callback in app.callback_map.items():
         wrapped_func = callback['callback'].__wrapped__
         callback_name = wrapped_func.__name__
+        if callback_name in excluded_callbacks: continue
         output, output_prop = callback_id.split(".")
         clusters[output].add(output_prop)
         output_list.append('"%s" [shape=octagon];' % callback_name)
@@ -59,5 +59,4 @@ def dot_chain(app):
             output_list.append('  "%s.%s" [label = "%s"];' % (c,p,p))
         output_list.append('};')
 
-    output_list.append('}')
     return "\n".join(output_list)

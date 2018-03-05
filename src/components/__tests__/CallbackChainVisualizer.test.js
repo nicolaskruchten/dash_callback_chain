@@ -5,7 +5,7 @@ import CallbackChainVisualizer from '../CallbackChainVisualizer.react';
 describe('CallbackChainVisualizer', () => {
 
     it('renders', () => {
-        const component = shallow(<CallbackChainVisualizer dot="digraph G { a -> b; }"/>);
+        const component = shallow(<CallbackChainVisualizer dot="a -> b;"/>);
         expect(component).to.be.ok;
     });
 });

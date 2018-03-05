@@ -2,6 +2,12 @@
 
 Dash component to visualize callback chains
 
+## Example
+
+The example app in this repo has two linked radio button groups and the chain visualization looks like this:
+
+![example](example.png)
+
 ## Usage
 
 Install with `pip install dash_callback_chain`
@@ -14,8 +20,8 @@ app.layout = html.Div([
     #... your app ...
 ])
 
-@app.callback( Output('chain', 'dot'), [Input('location', 'search')] )
-def show_chain(s): return chainvis.dot_chain(app)
+@app.callback( Output('chain', 'dot'), [Input('chain', 'id')] )
+def show_chain(s): return chainvis.dot_chain(app, ["show_chain"])
 
 # ... the rest of your app's callbacks
 ```

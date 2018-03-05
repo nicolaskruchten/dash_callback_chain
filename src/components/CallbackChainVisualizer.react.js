@@ -11,7 +11,9 @@ export default class CallbackChainVisualizer extends Component {
     render() { return (
           <details>
             <summary>show callback chain</summary>
-            <div dangerouslySetInnerHTML={{__html: Viz(this.props.dot, {format: 'svg'})}} />
+            <div dangerouslySetInnerHTML={{
+                __html: Viz(`digraph G { ${this.props.dot} }`, {format: 'svg'})
+            }} />
           </details>); }
 }
 
