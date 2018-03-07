@@ -20,6 +20,9 @@ app.layout = html.Div([
     #... your app ...
 ])
 
+app.scripts.config.serve_locally = True
+
+
 @app.callback( Output('chain', 'dot'), [Input('chain', 'id')] )
 def show_chain(s): return chainvis.dot_chain(app, ["show_chain"])
 
