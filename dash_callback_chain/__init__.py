@@ -42,11 +42,13 @@ def dot_chain(app, excluded_callbacks = []):
         wrapped_func = callback['callback'].__wrapped__
         callback_name = wrapped_func.__name__
         if callback_name in excluded_callbacks: continue
-        output, output_prop = callback_id.split(".")
-        clusters[output].add(output_prop)
-        output_list.append('"%s" [shape=octagon];' % callback_name)
-        output_list.append('"%s" -> "%s.%s";' %
-            (callback_name, output, output_prop))
+        split_list = callback_id.split(".")
+        for output, output_prop in zip(split_list[0::2], split_list[1::2]):
+            if output != "" and output_prop != "":
+                clusters[output].add(output_prop)
+                output_list.append('"%s" [shape=octagon];' % callback_name)
+                output_list.append('"%s" -> "%s.%s";' %
+                    (callback_name, output, output_prop))
         for i in callback['inputs']:
             clusters[i['id']].add(i['property'])
             output_list.append('"%s.%s" -> "%s";' %
